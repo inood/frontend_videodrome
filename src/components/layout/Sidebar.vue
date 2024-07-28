@@ -4,18 +4,13 @@ import { HomeIcon, FilmIcon, VideoCameraIcon, MagnifyingGlassIcon } from '@heroi
 import { HomeIcon as HomeSolidIcon, FilmIcon as FilmSolidIcon, MagnifyingGlassIcon as
       MagnifyingGlassIconSolid, VideoCameraIcon as VideoCameraSolidIcon} from '@heroicons/vue/24/solid'
 
-import { inject } from 'vue';
+// import { inject } from 'vue';
 
-const isCollapsed = inject('isCollapsed');
-const toggleMenu = inject('toggleMenu');
+// // const isCollapsed = inject('isCollapsed');
+// const toggleMenu = inject('toggleMenu');
 
 
 const menu = [
-  {
-    to: '/menu',
-    icon: VideoCameraIcon,
-    activeIcon: VideoCameraSolidIcon,
-  },
   {
     to: '/',
     icon: HomeIcon,
@@ -46,7 +41,7 @@ const route = useRoute();
       :to="to"
       :key="to"
       :class="[route.path === to ? 'bg-movie-black-400 text-white' : 'text-gray-600 hover:bg-movie-black-400', 'flex-shrink-0 inline-flex items-center justify-center h-14 w-14 rounded-lg']"
-       @click.prevent="to === '/menu' && toggleMenu()"
+
     >
       <component :is="route.path === to ? activeIcon : icon" class="h-6 w-6" />
     </router-link>
